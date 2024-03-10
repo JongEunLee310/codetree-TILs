@@ -1,5 +1,5 @@
 grid = [input() for _ in range(10)]
-B, L = [], []
+B, L, R = [], [], []
 for i in range(10):
     for j in range(10):
         if grid[i][j] == 'B':
@@ -9,5 +9,13 @@ for i in range(10):
             L.append(i)
             L.append(j)
 
-result = abs(B[0] - L[0]) + abs(B[1] - L[1]) - 1
+        if grid[i][j] == 'R':
+            R.append(i)
+            R.append(j)
+
+result = 0
+if B[0] == R[0] and L[0] == R[0] or B[1] == R[1] and L[1] == R[1]:
+    result = abs(B[0] - L[0]) + abs(B[1] - L[1]) + 1
+else:
+    result = abs(B[0] - L[0]) + abs(B[1] - L[1]) - 1
 print(result)
