@@ -6,7 +6,7 @@ for i in range(2, len(nums)):
     if nums[i] <= A + B:
         C = nums[i]
         D = nums[-1] - A - B - C
-        if not nums.index(D):
+        if not D in nums:
             C, D = 0, 0
         else:
             break
