@@ -10,7 +10,7 @@ while cur_wifi_loc < n:
         if e >= n:
             sig = False
             for i in range(s, n):
-                if i > 0 and i < n and residence[i] == 1 and not is_wifi[i]:
+                if i >= 0 and i < n and residence[i] == 1 and not is_wifi[i]:
                     result += 1
                     sig = True
                     break
