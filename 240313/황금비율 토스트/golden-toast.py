@@ -88,7 +88,7 @@ for i in range(m):
     elif cmd[0] == 'D':
         if it != l.end():
             l.erase(it.next)
-            l.erase(it)
+            it = l.erase(it)
     elif cmd[0] == 'P':
         l.insert(it, ' ')
         l.insert(it, cmd[1])
