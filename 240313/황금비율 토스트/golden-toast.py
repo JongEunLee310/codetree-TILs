@@ -73,6 +73,7 @@ l = DoublyLinkedList()
 n, m = [int(x) for x in input().split()]
 str1 = input()
 for c in str1:
+    l.push_back(' ')
     l.push_back(c)
 
 it = l.end()
@@ -80,20 +81,20 @@ for i in range(m):
     cmd = input().split()
     if cmd[0] == 'L':
         if it != l.begin():
-            it = it.prev
+            it = it.prev.prev
     elif cmd[0] == 'R':
         if it != l.end():
-            it = it.next
+            it = it.next.next
     elif cmd[0] == 'D':
         if it != l.end():
-            it = it.next
-            it = l.erase(it)
-            it = it.prev
+            l.erase(it.next)
+            l.erase(it)
     elif cmd[0] == 'P':
+        l.insert(it, ' ')
         l.insert(it, cmd[1])
-        it = it.prev
 
 it = l.begin()
 while it != l.end():
-    print(it.data, end='')
+    if it.data != ' ':
+        print(it.data, end='')
     it = it.next
