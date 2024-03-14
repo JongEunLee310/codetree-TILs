@@ -29,9 +29,7 @@ for _ in range(N):
     cmd = input().split()
     if cmd[0] == 'push': S.push(int(cmd[1]))
     elif cmd[0] == 'pop': print(S.pop())
-    elif cmd[0] == 'size':
-        result = S.size()
-        if result: print(result)
+    elif cmd[0] == 'size': print(S.size())
     elif cmd[0] == 'empty': print(1) if S.empty() else print(0)
     elif cmd[0] == 'top':
         result = S.top()
