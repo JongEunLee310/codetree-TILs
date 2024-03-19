@@ -6,7 +6,7 @@ grid = [[int(x) for x in input().split()] for _ in range(n)]
 
 # k를 기준으로 완점 탐색
 max_profit_gold = 0
-for k in range(n // 2 + 1):
+for k in range(n):
     cost = k * k + (k + 1) * (k + 1)
     for i in range(n):
         for j in range(n):
