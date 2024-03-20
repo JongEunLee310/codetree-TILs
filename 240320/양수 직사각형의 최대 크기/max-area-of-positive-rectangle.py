@@ -11,7 +11,7 @@ for i in range(n):
                 for c in range(i, a + 1):
                     sig = True
                     for d in range(j, b + 1):
-                        if grid[c][d] < 0:
+                        if grid[c][d] <= 0:
                             rec = 0
                             sig = False
                             break
