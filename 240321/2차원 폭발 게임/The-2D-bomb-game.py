@@ -7,7 +7,14 @@ def explode(bombs, M):
         sig = False
 
         # M개 이상 같은 숫자인 폭탄 구간 탐색
-        cur = bombs[0]
+        cur = 0
+        for i in range(len(bombs)):
+            if bombs[i] != 0:
+                cur = bombs[i]
+                break
+        if cur == 0:
+            break
+
         cnt = 0
         for i in range(len(bombs)):
             if bombs[i] == cur:
@@ -62,7 +69,7 @@ def rotate_90(grid):
 N, M, K = [int(x) for x in input().split()]
 grid = [[int(x) for x in input().split()] for _ in range(N)]
 
-for k in range(K):
+for k in range(K + 1):
     for i in range(N):
         tmp = []
         for j in range(N):
