@@ -11,7 +11,6 @@ for i in range(m):
     r, c = marbles[i][0], marbles[i][1]
     count[r][c] = 1
 
-
 dx, dy = [0, 0, -1, 1], [-1, 1, 0, 0]
 for _ in range(t):
     # 구슬 이동
@@ -24,11 +23,12 @@ for _ in range(t):
                 max_value = grid[ny][nx]
                 max_x, max_y = nx, ny
             
-            # count 2차원 리스트에서 이전 위치의 구슬 수를 1만큼 감소시키고 다음 위치의 구슬 수를 1만큼 증가 후 구슬의 위치 수정
-            count[marbles[i][0]][marbles[i][1]] -= 1
-            count[max_y][max_x] += 1
-            marbles[i][0], marbles[i][1] = max_y, max_x
             
+        # count 2차원 리스트에서 이전 위치의 구슬 수를 1만큼 감소시키고 다음 위치의 구슬 수를 1만큼 증가 후 구슬의 위치 수정
+        count[marbles[i][0]][marbles[i][1]] -= 1
+        count[max_y][max_x] += 1
+        marbles[i][0], marbles[i][1] = max_y, max_x
+
     # count 2차원 리스트에서 2이상의 값의 위치를 찾아 0으로 만들고 해당 위치에 있던 구슬을 marbles 리스트에서 제거
     for i in range(n):
         for j in range(n):
