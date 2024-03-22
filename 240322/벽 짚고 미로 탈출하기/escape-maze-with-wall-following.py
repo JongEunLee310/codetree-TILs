@@ -5,7 +5,7 @@ N = int(input())
 x, y = [int(x) - 1 for x in input().split()]
 miro = [input() for _ in range(N)]
 
-dx, dy = [1, 0, -1, 0], [0, 1, 0, -1]
+dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
 Dir, t, turn_cnt = 0, 0, 0  # turn_cnt는 제자리에서 반시계 방향으로 회전하는 횟수, 4이상이면 탈출 불가능으로 판단
 sx, sy = x, y
 while True:
@@ -22,12 +22,12 @@ while True:
         break
     else:
         # 진행 방향으로 다음 칸이 벽이면 반시계 방향으로 90도 회전
-        if miro[ny][nx] == '#':
+        if miro[nx][ny] == '#':
             Dir = (Dir + 3) % 4
             turn_cnt += 1
         # 진행 방향으로 다음 칸이 비어 있을 때 오른쪽이 벽이면 그대로 진행, 아니면 시계방향으로 90도 회전 후 한 칸 더 전진
-        elif miro[ny][nx] == '.':
-            if miro[ny + dy[(Dir + 1) % 4]][nx + dx[(Dir + 1) % 4]] == '#':
+        elif miro[nx][ny] == '.':
+            if miro[nx + dx[(Dir + 1) % 4]][ny + dy[(Dir + 1) % 4]] == '#':
                 x, y = nx, ny
             else:
                 Dir = (Dir + 1) % 4
