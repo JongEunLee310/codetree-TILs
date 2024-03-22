@@ -7,10 +7,10 @@ miro = [input() for _ in range(N)]
 
 dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
 Dir, t, turn_cnt = 0, 0, 0  # turn_cnt는 제자리에서 반시계 방향으로 회전하는 횟수, 4이상이면 탈출 불가능으로 판단
-sx, sy = x, y
+sx, sy, sDir = x, y, Dir
 while True:
-    # 출발 지점으로 되돌아오거나 제자리에서 회전만 한다면 탈출 불가능
-    if x == sx and y == sy and t > 0 or turn_cnt >= 4:
+    # 출발할 때 방향으로 출발 지점으로 되돌아오거나 제자리에서 회전만 한다면 탈출 불가능
+    if x == sx and y == sy and Dir == sDir and t > 0 or turn_cnt >= 4:
         t = -1
         break
 
