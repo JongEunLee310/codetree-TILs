@@ -1,7 +1,7 @@
 def in_range(x, y, n, m):
     return 0 <= x < n and 0 <= y < m
 
-def move_marbles(N, M, count, marbles):
+def move_marbles(N, M, count, marbles, dy, dx):
     # 구슬의 수가 지정한 방향으로 격자를 한 번 왕복할 때까지 변하지 않으면 정지
     unchange_cnt = 0
     while unchange_cnt < N * 2:
@@ -17,18 +17,19 @@ def move_marbles(N, M, count, marbles):
                 marbles[i][0], marbles[i][1] = nr, nc
 
         # 남아있는 구슬 이동 후 한 칸에 2개 이상 있는 구슬 제거
-        sig = False
+        sig = False # 구슬 수 변화하는 않은 상태로 초기화, 만일 변화하면 True 전환
         for i in range(N):
             for j in range(N):
                 if count[i][j] >= 2:
                     count[i][j] = 0
-                    m_idx = 0
+                    # marbles 리스트에서 조건에 해당하는 구슬 제거, 해당 구슬을 맨 뒤로 보낸 후 pop() -> O(n) 시간복잡도로 제거를 위해
+                    m_idx = 0   # m_idx는 marble내 인덱스, 제거되는 구슬이 있으면 증가하지 않고 제거되는 구슬이 없을 때만 제거
                     while m_idx < M:
                         if marbles[m_idx][0] == i and marbles[m_idx][1] == j:
                             marbles[m_idx], marbles[-1] = marbles[-1], marbles[m_idx]
                             marbles.pop()
                             M -= 1
-                            unchange_cnt = 0
+                            unchange_cnt = 0    # 구슬을 제거하면 구슬의 수가 변하므로 구슬 수가 변화하지 않은 시간이 0으로 초기화
                             sig = True
                             continue
                         m_idx += 1
@@ -50,5 +51,5 @@ for _ in range(T):
         marbles[i] = [r, c, d]
         count[r][c] += 1
     
-    exist_m = move_marbles(N, M, count, marbles)
+    exist_m = move_marbles(N, M, count, marbles, dy, dx)
     print(exist_m)
