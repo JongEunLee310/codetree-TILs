@@ -1,14 +1,14 @@
-# 모든 선분을 수직선 상에 올려 겹치지 않는 최대 선분 개수를 탐색
-def max_lines(lines, n, l):
-    if n == len(lines): return n
+# 모든 선분을 겹치지 않고 수직선 상에 올리는 모든 경우의 수 중 최대 선분 개수를 탐색
+def max_lines(lines, n, idx, l):
+    if idx == len(lines): return idx
 
     max_n = n
-    for i in range(len(lines)):
-        if i not in l and not is_overlap(lines, l, i):
-            l.append(i)
-            max_n = max(max_n, max_lines(lines, n + 1, l))
-            l.pop()
-    
+    if not is_overlap(lines, l, idx):
+        l.append(idx)
+        max_n = max(max_n, max_lines(lines, n + 1, idx + 1, l))
+        l.pop()
+    max_n = max(max_n, max_lines(lines, n, idx + 1, l))
+
     return max_n
 
 # 추가하려는 선분이 겹치는 여부를 판별하는 함수
@@ -26,4 +26,4 @@ def in_range(x, y, s, e):
 
 n = int(input())
 lines = [[int(x) - 1 for x in input().split()] for _ in range(n)]
-print(max_lines(lines, 0, []))
+print(max_lines(lines, 0, 0, []))
