@@ -1,6 +1,6 @@
 # 모든 선분을 겹치지 않고 수직선 상에 올리는 모든 경우의 수 중 최대 선분 개수를 탐색
 def max_lines(lines, n, idx, l):
-    if idx == len(lines): return idx
+    if idx == len(lines): return n
 
     max_n = n
     if not is_overlap(lines, l, idx):
