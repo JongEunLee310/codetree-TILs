@@ -22,7 +22,7 @@ def is_overlap(lines, l, i):
     return result
 
 def in_range(x, y, s, e):
-    return s <= x <= e or s <= y <= e
+    return s <= x <= e or s <= y <= e or x <= s <= y or x <= e <= y
 
 n = int(input())
 lines = [[int(x) - 1 for x in input().split()] for _ in range(n)]
