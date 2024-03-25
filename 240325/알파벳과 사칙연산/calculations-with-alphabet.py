@@ -1,8 +1,10 @@
+from sys import maxsize
+
 # 각 자리에 1 ~ 4인 정수를 넣는 모든 경우의 수 중 최대 결과를 내는 것을 탐색하는 함수
 def get_maximum(f, nums, idx):
     if idx == len(nums): return cal(f, nums)
 
-    max_cal = 0
+    max_cal = -maxsize
     for i in range(1, 5):
         nums[idx] = i
         max_cal = max(max_cal, get_maximum(f, nums, idx + 1))
