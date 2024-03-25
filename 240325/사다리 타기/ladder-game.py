@@ -28,7 +28,7 @@ def get_min_bar(b, idx, l, x, y, fr, cnt):
     c, r = b[idx]
     l[r][c], l[r][c + 1] = c + 1, c
     if get_result(l, x, y) == fr:
-        min_cnt = min(min_cnt, cnt)
+        min_cnt = min(min_cnt, cnt + 1)
     else:
         min_cnt = min(min_cnt, get_min_bar(b, idx + 1, l, x, y, fr, cnt + 1))
     l[r][c], l[r][c + 1] = None, None
@@ -47,5 +47,5 @@ ladder = [[None for _ in range(n)] for _ in range(max_y + 1)]
 for x, y in bars:
     ladder[y][x], ladder[y][x + 1] = x + 1, x
 
-first_result = get_result(ladder, n, max_y)
-print(get_min_bar(bars, 0, [[None for _ in range(n)] for _ in range(max_y + 1)], n, max_y, first_result, 0))
+first_result = get_result(ladder, n, max_y + 1)
+print(get_min_bar(bars, 0, [[None for _ in range(n)] for _ in range(max_y + 1)], n, max_y + 1, first_result, 0))
