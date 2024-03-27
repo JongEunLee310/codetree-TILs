@@ -11,7 +11,8 @@ def dfs(m, n, grid, visited, dx, dy, x, y):
             visited[ny][nx] = 1
             result = dfs(m, n, grid, visited, dx, dy, nx, ny)
             visited[ny][nx] = 0
-
+        if result == 1: break
+    
     return result
 
 n, m = [int(x) for x in input().split()]
