@@ -9,7 +9,7 @@ def min_cost(n, grid, r_visited, c_visited, cur_r, cnt, cost):
         # 행과 열이 같은 위치는 선택할 수 없으므로 넘어간다
         if i == cur_r: continue
         # 1로 가는 선택은 가장 마지막에 해야하고 그 외에 cost가 0이 아닌 위치 중 방문하지 않은 행이나 열로 이동해야한다.
-        if i == 0 and cnt + 1 == n or i != 0 and grid[cur_r][i] != 0 and not r_visited[i] and not c_visited[i]:
+        if grid[cur_r][i] != 0 and (i == 0 and cnt + 1 == n or i != 0 and not r_visited[i] and not c_visited[i]):
             cost.append(grid[cur_r][i])
             r_visited[cur_r], c_visited[i] = True, True
             min_c = min(min_c, min_cost(n, grid, r_visited, c_visited, i, cnt + 1, cost))
