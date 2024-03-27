@@ -10,7 +10,6 @@ def dfs(m, n, grid, visited, dx, dy, x, y):
         if in_range(nx, ny, m, n) and grid[ny][nx] == 1 and visited[ny][nx] == 0:
             visited[ny][nx] = 1
             result = dfs(m, n, grid, visited, dx, dy, nx, ny)
-            visited[ny][nx] = 0
         if result == 1: break
     
     return result
