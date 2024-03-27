@@ -5,7 +5,7 @@ def max_xor(nums, m, idx, cnt, result):
         if cnt == m: return result
         else: return -1
 
-    max_result = max(result, max_xor(nums, m, idx + 1, cnt + 1, result ^ nums[idx]), max_xor(nums, m, idx + 1, cnt, result))
+    max_result = max(result, max_xor(nums, m, idx + 1, cnt + 1, result ^ nums[idx]), max_xor(nums, m, idx + 1, cnt, result)) if result != 0 else max(max_xor(nums, m, idx + 1, cnt + 1, result ^ nums[idx]), max_xor(nums, m, idx + 1, cnt, result))
 
     return max_result
 
