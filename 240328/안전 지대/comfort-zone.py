@@ -1,3 +1,6 @@
+from sys import setrecursionlimit
+setrecursionlimit(10000)
+
 def in_range(x, y, n, m):
     return 0 <= x < n and 0 <= y < m
 
