@@ -18,7 +18,7 @@ for i in range(N):
 
 # k보다 큰 숫자가 있는 곳부터 dfs로 방문하는 것을 방문하여 안전 영역의 개수를 구한다.
 dx, dy = [0, 1, 0, -1], [-1, 0, 1, 0]
-max_k, max_area = 0, 0
+max_k, max_area = 1, 0
 for k in range(1, max_height + 1):
     visited = [[0 for _ in range(M)] for _ in range(N)]
     area = 0
