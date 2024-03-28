@@ -16,6 +16,7 @@ grid = [[int(x) for x in input().split()] for _ in range(n)]
 visited = [[0 for _ in range(n)] for _ in range(n)]
 dx, dy = [0, 1, 0, -1], [-1, 0, 1, 0]
 
+# 격자의 왼쪽 상단부터 오른쪽 하단까지 순회하면서 사람이고 방문하지 않은 상태이면 dfs를 실행하여 마을에 있는 사람의 수를 구함
 cnt = 0
 p = []
 for i in range(n):
