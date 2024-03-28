@@ -31,10 +31,9 @@ starts = [[int(x) - 1 for x in input().split()] for _ in range(k)]
 q = deque()
 dx, dy = [0, 1, 0, -1], [-1, 0, 1, 0]
 # 방문 여부를 저장하는 visited 리스트 초기화
+visited = [[0 for _ in range(n)] for _ in range(n)]
 for r, c in starts:
-    visited = [[0 for _ in range(n)] for _ in range(n)]
-    visited[r][c] = True
-
+    visited[r][c] = 1
     q.append([r, c])
     
 bfs(grid, visited, dx, dy, q)
