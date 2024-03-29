@@ -25,7 +25,7 @@ def bfs(n, v, q, s, dxs, dys, ex, ey):
             if can_go(nx, ny, v, n):
                 push(nx, ny, v, q, s, s[y][x] + 1)
 
-    return s[ey][ex] if s[ey][ex] != 0 else -1
+    return s[ey][ex] if s[ey][ex] != 0 or s[ey][ex] == 0 and visited[ey][ex] else -1
 
 n = int(input())
 r1, c1, r2, c2 = [int(x) - 1 for x in input().split()]
