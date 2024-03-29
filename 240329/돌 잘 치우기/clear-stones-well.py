@@ -23,12 +23,12 @@ def bfs(n, g, v, q, dxs, dys):
                 push(nx, ny, v, q)
 
 # 재귀적으로 m개의 돌을 선택해 bfs를 실행하는 함수
-def get_max(n, m, g, stones, s_idx, cnt, q, dx, dy):
-    if cnt == m: 
+def get_max(n, m, g, stones, s_idx, cnt, starts, q, dx, dy):
+    if cnt == m:
+        for s in starts:
+            q.append(s)
         #실행 후 도달가능한 칸의 수 계산
         visited = [[0 for _ in range(len(g[0]))] for _ in range(len(g))]
-        for r, c in q:
-            visited[r][c] = 1
         
         bfs(n, g, visited, q, dx, dy)
         result = 0        
@@ -42,11 +42,12 @@ def get_max(n, m, g, stones, s_idx, cnt, q, dx, dy):
     # 현재 돌을 선택하는 방법
     r, c = stones[s_idx]
     g[r][c] = 0
-    r1 = get_max(n, m, g, stones, s_idx + 1, cnt + 1, q, dx, dy)
+    
+    r1 = get_max(n, m, g, stones, s_idx + 1, cnt + 1, starts, q, dx, dy)
     g[r][c] = 1
 
     # 현재 돌을 선택하지 않는 방법
-    r2 = get_max(n, m, g, stones, s_idx + 1, cnt, q, dx, dy)
+    r2 = get_max(n, m, g, stones, s_idx + 1, cnt, starts, q, dx, dy)
 
     max_area = max(max_area, r1, r2)
 
@@ -61,8 +62,5 @@ for i in range(n):
         if grid[i][j] == 1: stones.append([i, j])
 
 q = deque()
-for s in starts:
-    q.append(s)
 dx, dy = [0, 1, 0, -1], [-1, 0, 1, 0]
-
-print(get_max(n, m, grid, stones, 0, 0, q, dx, dy))
+print(get_max(n, m, grid, stones, 0, 0, starts, q, dx, dy))
