@@ -8,4 +8,4 @@ for i in range(M + 1):
         if i - coin >= 0:
             dp[i] = max(dp[i], dp[i - coin] + 1)
 
-print(dp[-1])
+print(dp[-1] if dp[-1] > 0 else -1)
