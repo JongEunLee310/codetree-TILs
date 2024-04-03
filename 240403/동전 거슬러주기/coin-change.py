@@ -10,4 +10,4 @@ for i in range(1, M + 1):
     for coin in coins:
         if i - coin >= 0:
             dp[i] = min(dp[i], dp[i - coin] + 1)
-print(dp[-1])
+print(dp[-1] if dp[-1] < maxsize else -1)
