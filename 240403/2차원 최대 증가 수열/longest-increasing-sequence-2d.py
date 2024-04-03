@@ -7,7 +7,7 @@ for i in range(1, n):
     for j in range(1, m):
         for k in range(i):
             for l in range(j):
-                if grid[i][j] > grid[k][l]:
+                if grid[i][j] > grid[k][l] and dp[k][l] > 0:
                     dp[i][j] = max(dp[i][j], dp[k][l] + 1)
 
 ans = 0
