@@ -14,4 +14,4 @@ for e, t in q_info:
         else:
             dp[i] = min(dp[i], t)
 
-print(dp[-1])
+print(dp[-1] if dp[-1] < maxsize else -1)
