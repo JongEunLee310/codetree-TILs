@@ -7,7 +7,7 @@ def init_dp(n, t):
         for j in range(t + 1):
             dp[i][j] = -maxsize
     dp[0][0] = 0
-    
+
     return dp
 
 n, m = [int(x) for x in input().split()]
@@ -38,4 +38,4 @@ for j in range(t + 1):
     if dp[n][j] >= m:
         ans = min(ans, j)
 
-print(ans if ans > -maxsize else -1)
+print(ans if ans < maxsize else -1)
