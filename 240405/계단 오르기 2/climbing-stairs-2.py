@@ -14,6 +14,6 @@ coins = [int(x) for x in input().split()]
 dp = init_dp(n)
 for i in range(1, n + 1):
     for j in range(1, min(4, i + 1)):
-        dp[i][j] = max(dp[i][j], dp[i - 2][j] + coins[i - 1], dp[i - 1][j - 1] + coins[i - 1]) if i > 2 else max(dp[i][j], dp[i - 1][j - 1] + coins[i - 1])
- 
+        dp[i][j] = max(dp[i][j], dp[i - 2][j] + coins[i - 1], dp[i - 1][j - 1] + coins[i - 1]) if i - j >= 2 else max(dp[i][j], dp[i - 1][j - 1] + coins[i - 1])
+
 print(max(dp[n]))
