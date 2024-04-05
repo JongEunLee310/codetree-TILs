@@ -28,7 +28,7 @@ for i in range(1, n + 1):
                 # 현재 음수 개수는 1
             # 직전 최대 부분 연속합과 음수의 합이 음수보다 작지 않으면
                 # dp[i]는 직전 최대 부분 연속합과 음수의 합
-        if cur_k <= k:
+        if cur_k + 1 <= k:
             if dp[i - 1] + nums[i - 1] < nums[i - 1]:
                 dp[i] = nums[i - 1]
                 q.clear()
@@ -45,6 +45,10 @@ for i in range(1, n + 1):
         else:
             front_odd_idx, v = q.popleft()
             tmp = dp[i - 1] - v
+            # 기존에 큐에 있던 홀수들의 부분 연속합에 빠지는 홀수의 부분 연속합을 빼준다.
+            for j in range(len(q)):
+                    q[j][1] -= v
+    
             if tmp + nums[i - 1] < nums[i - 1]:
                 dp[i] = nums[i - 1]
                 q.clear()
@@ -52,9 +56,8 @@ for i in range(1, n + 1):
                 cur_k = 1
             else:
                 dp[i] = tmp + nums[i - 1]
-                for j in range(len(q)):
-                    q[j][1] -= v
                 q.append([i, dp[i]])
+            
     else:
         dp[i] = max(dp[i - 1] + nums[i - 1], nums[i - 1])
 
