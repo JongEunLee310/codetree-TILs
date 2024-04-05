@@ -59,6 +59,11 @@ for i in range(1, n + 1):
                 q.append([i, dp[i]])
             
     else:
-        dp[i] = max(dp[i - 1] + nums[i - 1], nums[i - 1])
+        if dp[i - 1] + nums[i - 1] < nums[i - 1]:
+            dp[i] = nums[i - 1]
+            q.clear()
+            cur_k = 0
+        else:
+            dp[i] = dp[i - 1] + nums[i - 1]
 
 print(max(dp))
