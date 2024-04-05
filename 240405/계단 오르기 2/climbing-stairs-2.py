@@ -1,9 +1,9 @@
 from sys import maxsize
 
 def init_dp(n, c):
-    dp = [[0 for _ in range(4)] for _ in range(n + 1)]
-    for i in range(2, n + 1, 2):
-        dp[i][0] = coins[i - 1]
+    dp = [[-maxsize for _ in range(4)] for _ in range(n + 1)]
+    for i in range(n + 1):
+        dp[i][0] = dp[i - 2][0] + coins[i - 1] if i % 2 == 0 and i >= 2 else 0
     return dp
 
 n = int(input())
