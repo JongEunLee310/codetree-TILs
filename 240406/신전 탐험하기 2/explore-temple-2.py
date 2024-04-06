@@ -20,7 +20,7 @@ for i in range(1, n):
             if j == k:
                 continue
 
-            if dp[i][j][0] < dp[i - 1][k][0] + floor_info[i][j]:
+            if dp[i][j][0] <= dp[i - 1][k][0] + floor_info[i][j]:
                 dp[i][j][0] = dp[i - 1][k][0] + floor_info[i][j]
                 dp[i][j][1] = dp[i - 1][k][1]
 
