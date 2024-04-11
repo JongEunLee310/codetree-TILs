@@ -12,10 +12,10 @@ for _ in range(n):
         print('true' if int(cmd[1]) in s else 'false')
     elif cmd[0] == 'lower_bound':
         lower_bound = s.bisect_left(int(cmd[1]))
-        print(s[lower_bound]) if lower_bound != None and lower_bound < len(s) else print(None)
+        print(s[lower_bound] if lower_bound != None and lower_bound < len(s) else None)
     elif cmd[0] == 'upper_bound':
         upper_bound = s.bisect_right(int(cmd[1]))
-        print(s[upper_bound] if upper_bound != None else None)
+        print(s[upper_bound] if upper_bound != None and upper_bound < len(s) else None)
     elif cmd[0] == 'largest':
         try:
             print(s[-1])
