@@ -4,8 +4,8 @@ n, m = [int(x) for x in input().split()]
 chair = [int(x) for x in input().split()]
 s = SortedSet([0])
 for c in chair:
-    lower_bound = s.bisect_left(c)
-    if lower_bound <= c and lower_bound <= m:
+    upper_bound = s.bisect_right(c)
+    if upper_bound <= c and upper_bound <= m:
         s.add(c)
     else:
         break
