@@ -11,4 +11,4 @@ for num in s:
     lower_bound = s.bisect_left(num + m)
     ans = min(ans, s[lower_bound] - num if lower_bound < len(s) else maxsize)
 
-print(ans)
+print(ans if ans < maxsize else -1)
