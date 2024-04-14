@@ -20,5 +20,5 @@ for i in range(m):
         else:
             print(nums[lower_bound])
             nums.remove(nums[lower_bound])
-    elif lower_bound > len(nums):
+    else:
         print(-1)
