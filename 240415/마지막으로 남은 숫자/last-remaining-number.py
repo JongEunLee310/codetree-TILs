@@ -13,4 +13,4 @@ while len(pq) >= 2:
         continue
     heapq.heappush(pq, -diff)
 
-print(-pq[0])
+print(-pq[0] if len(pq) > 0 else -1)
