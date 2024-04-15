@@ -1,22 +1,22 @@
 import heapq
-from collections import deque
 
 N = int(input())
-# 숫자의 최소값을 빠르게 찾기 위해 pq를 사용
-pq = [int(x) for x in input().split()]
-# 앞에서부터 순서대로 숫자를 삭제하기 위해 deque로 숫자의 순서를 관리
-nums = deque(pq)
+nums = [int(x) for x in input().split()]
 
-heapq.heapify(pq)
-max_avg = 0
-for K in range(1, N - 1):
-    # deque의 맨 앞에 있는 숫자를 pq에서 제거
-    pq.remove(nums.popleft())
+# 숫자를 nums에 입력된 순서에 거꾸로 pq에 추가하며 최대 평균값을 계산
+pq = [nums[-1]]
+total, max_avg = nums[-1], nums[-1]
+for i in range(N - 2, 1, -1):
+    heapq.heappush(pq, nums[i])
+    total += nums[i]
 
-    # pq에서 가장 작은 수를 제외한 나머지 수의 평균을 구한 후 최대 평균과 비교 
+    # 남은 수 중 최소값을 제외한 평균과 이전 최대 평균값을 비교해 최대 평균값을 구한다.
     min_num = heapq.heappop(pq)
-    max_avg = max(max_avg, sum(pq) / len(pq))
+    total -= min_num
+    max_avg = max(max_avg, total / len(pq))
 
-    # 제외한 최소값을 다시 pq에 넣어준다.
+    # 최소값을 다시 pq에 복원
     heapq.heappush(pq, min_num)
+    total += min_num
+
 print("{0:.2f}".format(max_avg))
