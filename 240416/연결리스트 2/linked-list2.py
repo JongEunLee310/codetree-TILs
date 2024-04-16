@@ -28,7 +28,7 @@ def pop(u):
     if u.next is not None:
         u.next.prev = u.prev
 
-        u.prev = u.next = None
+    u.prev = u.next = None
 
 N = int(input())
 Q = int(input())
