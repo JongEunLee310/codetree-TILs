@@ -13,4 +13,4 @@ for i in range(1, max_len):
 
 for _ in range(Q):
     s, e = [int(x) for x in input().split()]
-    print(prefix_sum[e] - prefix_sum[s - 1])
+    print(prefix_sum[e] - prefix_sum[s - 1] if s > 0 else prefix_sum[e])
