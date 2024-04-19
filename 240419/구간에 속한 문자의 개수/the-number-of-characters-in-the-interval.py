@@ -2,7 +2,7 @@ n, m, k = [int(x) for x in input().split()]
 grid = [' ' * (m + 1)] + [' ' + input() for _ in range(n)]
 
 # 알파벳 a, b, c에 대한 각각의 누적합 테이블을 초기화
-prefix_sum = [[[0 for _ in range(n + 1)] for _ in range(n + 1)] for _ in range(3)]
+prefix_sum = [[[0 for _ in range(m + 1)] for _ in range(n + 1)] for _ in range(3)]
 for i in range(3):
     cur = chr(ord('a') + i)
     for j in range(1, n + 1):
