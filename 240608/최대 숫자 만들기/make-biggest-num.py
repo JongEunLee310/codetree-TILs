@@ -40,7 +40,7 @@ def compare(x, y):
         # x가 더 긴 숫자일 때 x_i만 증가시키며 y의 맨 앞 자릿수와 비교
         if len(x) > len(y):
             while x_i < len(x) and sig == 0:
-                if x[x_i] > y[0]:
+                if x[x_i] >= y[0]:
                     sig = -1
                 elif x[x_i] < y[0]:
                     sig = 1
@@ -49,7 +49,7 @@ def compare(x, y):
         # y가 더 긴 숫자일 때 y_i만 증가시키며 x의 맨 앞 자릿수와 비교        
         elif len(x) < len(y):
             while y_i < len(y) and sig == 0:
-                if y[y_i] > x[0]:
+                if y[y_i] >= x[0]:
                     sig = 1
                 elif y[y_i] < x[0]:
                     sig = -1
