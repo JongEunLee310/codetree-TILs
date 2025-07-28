@@ -7,20 +7,20 @@ public class Main {
         int start = sc.nextInt();
         int end = sc.nextInt();
         int cnt = 0;
-        int dividers = 0;
+        int divisorCnt = 0;
         for (int i = start; i <= end; i++) {
-            dividers = 0;
+            divisorCnt = 0;
             for (int j = 1; j <= i; j++) {
                 if (i % j == 0) {
-                    dividers++;
+                    divisorCnt++;
                 }
 
-                if (dividers > 3) {
+                if (divisorCnt > 3) {
                     break;
                 }
             }
 
-            if (dividers == 3) {
+            if (divisorCnt == 3) {
                 cnt++;
             }
         }
