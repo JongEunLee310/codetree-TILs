@@ -8,24 +8,18 @@ public class Main {
         String word2 = sc.next();
         
         char[] charWord1 = word1.toCharArray();
-        char[] charWord2 = word2.toCharArray();
-
         Arrays.sort(charWord1);
+        String sortedWord1 = new String(charWord1);
+
+
+        char[] charWord2 = word2.toCharArray();
         Arrays.sort(charWord2);
+        String sortedWord2 = new String(charWord2);
 
-        String result = "Yes";
-        if (word1.length() == word2.length()) {
-            for (int i = 0; i < word1.length(); i++) {
-                if (charWord1[i] != charWord2[i]) {
-                    result = "No";
-                    break;
-                }
-            }
+        if (sortedWord1.equals(sortedWord2)) {
+            System.out.println("Yes");
         } else {
-            result = "No";
+            System.out.println("No");
         }
-        
-
-        System.out.println(result);
     }
 }
