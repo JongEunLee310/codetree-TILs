@@ -12,7 +12,7 @@ public class Main {
         int days1 = getDays(m1, d1);
         int days2 = getDays(m2, d2);
 
-        int diff = days2 - days1 + 1;
+        int diff = days2 - days1;
         int result = numOfA(diff, A);
 
         System.out.println(result);
@@ -57,7 +57,7 @@ public class Main {
             default:
                 times += 1;
         }
-        
+
         return times;
     }
 }
