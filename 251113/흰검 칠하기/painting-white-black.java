@@ -3,10 +3,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
-        int[] w_tiles = new int[31];
-        int[] b_tiles = new int[31];
-        Integer[] tiles = new Integer[31];
-        int curr = 15;
+        int[] w_tiles = new int[200001];
+        int[] b_tiles = new int[200001];
+        Integer[] tiles = new Integer[200001];
+        int curr = 100000;
         for (int i = 0; i < N; i++) {
             int x = sc.nextInt();
             char d = sc.next().charAt(0);
@@ -35,7 +35,7 @@ public class Main {
         int w = 0;
         int b = 0;
         int g = 0;
-        for (int i = 0; i < 31; i++) {
+        for (int i = 0; i < 200001; i++) {
             if (tiles[i] == null) {
                 continue;
             } else if (tiles[i] == 1) {
