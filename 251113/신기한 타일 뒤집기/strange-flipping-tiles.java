@@ -12,10 +12,10 @@ public class Main {
             for (int j = 0; j < x; j++) {
                 if (d == 'L') {
                     if (j > 0) curr--;
-                    tiles[j] = 1;
+                    tiles[curr] = 1;
                 } else {
                     if (j > 0) curr++;
-                    tiles[j] = 2;
+                    tiles[curr] = 2;
                 }
             }
         }
