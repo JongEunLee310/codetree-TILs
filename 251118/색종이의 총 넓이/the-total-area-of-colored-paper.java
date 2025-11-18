@@ -13,7 +13,7 @@ public class Main {
         int offset = 100;
         int[][] grid = new int[201][201];
         for (int i = 0; i < n; i++) {
-            for (int gy = y[i]; gy > y[i] - 8; gy--) {
+            for (int gy = y[i]; gy < y[i] + 8; gy++) {
                 for (int gx = x[i]; gx < x[i] + 8; gx++) {
                     grid[gy + offset][gx + offset] = 1;
                 }
