@@ -11,15 +11,14 @@ public class Main {
         
         int answer = 0;
         int curr = 1;
-        for (int i = 1; i < n; i++) {
-            if (arr[i - 1] == arr[i]) {
+        for (int i = 0; i < n; i++) {
+            if (i >= 1 && arr[i - 1] == arr[i]) {
                 curr++;
             } else {
-                answer = Math.max(answer, curr);
                 curr = 1;
             }
+            answer = Math.max(answer, curr);
         }
-
         System.out.println(answer);
     }
 }
