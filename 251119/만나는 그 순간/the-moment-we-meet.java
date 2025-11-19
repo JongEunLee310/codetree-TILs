@@ -36,11 +36,13 @@ public class Main {
             bt += t;
         }
 
-        for (int i = 1; i < 1000000; i++) {
+        int answer = -1;
+        for (int i = 1; i < Math.min(at, bt); i++) {
             if (a[i] == b[i]) {
-                System.out.println(i);
+                answer = i;
                 break;
             }
         }
+        System.out.println(answer);
     }
 }
