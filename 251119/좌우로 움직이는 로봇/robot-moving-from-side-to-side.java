@@ -43,16 +43,19 @@ public class Main {
         int answer = 0;
         int aCurr = 1;
         int bCurr = 1;
-        int t = 0;
+        int t = 1;
         while(t < Math.max(at, bt)) {
-            if (A[aCurr - 1] != B[bCurr - 1] && A[aCurr] == B[bCurr]) {
+            if (t < at && t < bt && A[t - 1] != B[t - 1] && A[t] == B[t]) {
+                answer++;
+            } else if (t > at && t < bt && A[aCurr] == B[t]) {
+                answer++;
+            } else if (t < at && t > bt && A[t] == B[bCurr]) {
                 answer++;
             }
-
+            
             if (aCurr + 1 <= at) {
                 aCurr++;
             }
-
             if (bCurr + 1 <= bt) {
                 bCurr++;
             }
