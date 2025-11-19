@@ -6,7 +6,7 @@ public class Main {
         int n = sc.nextInt();
         int m = sc.nextInt();
         
-        int maxTime = 1000000;
+        int maxTime = 10000001;
 
         int[] A = new int[maxTime];
         int at = 0;
