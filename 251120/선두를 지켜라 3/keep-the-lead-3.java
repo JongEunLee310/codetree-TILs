@@ -19,8 +19,8 @@ public class Main {
         int[] aTimeTable = new int[maxTime];
         int at = 0;
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < a[i][1]; j++) {
-                aTimeTable[at + j] += a[i][0];
+            for (int j = 1; j <= a[i][1]; j++) {
+                aTimeTable[at + j] = aTimeTable[at + j - 1] + a[i][0];
             }
             at += a[i][1];
         }
@@ -28,8 +28,8 @@ public class Main {
         int[] bTimeTable = new int[maxTime];
         int bt = 0;
         for (int i = 0; i < m; i++) {
-            for (int j = 0; j < b[i][1]; j++) {
-                bTimeTable[bt + j] += b[i][0];
+            for (int j = 1; j <= b[i][1]; j++) {
+                bTimeTable[bt + j] = bTimeTable[bt + j - 1] + b[i][0];
             }
             bt += b[i][1];
         }
@@ -48,7 +48,6 @@ public class Main {
                 answer++;
             }
         }
-
         System.out.println(answer);
     }
 }
