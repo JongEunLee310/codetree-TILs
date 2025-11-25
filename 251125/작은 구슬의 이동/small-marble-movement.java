@@ -4,13 +4,13 @@ public class Main {
     public static int getDir(String D) {
         int dirNum = 0;
 
-        if (D.equals('U')) {
-            dirNum = 1;
-        } else if (D.equals('D')) {
+        if (D.equals("U")) {
             dirNum = 2;
-        } else if (D.equals('R')) {
+        } else if (D.equals("D")) {
+            dirNum = 1;
+        } else if (D.equals("R")) {
             dirNum = 0;
-        } else if (D.equals('L')) {
+        } else if (D.equals("L")) {
             dirNum = 3;
         }
 
