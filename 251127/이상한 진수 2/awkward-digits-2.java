@@ -4,7 +4,11 @@ public class Main {
         int N = 0;
         for (int i = 0; i < a.length(); i++) {
             if (i == idx) {
-                N = N * 2 + 1;
+                if (a.charAt(i) == '1') {
+                    N = N * 2;
+                } else if (a.charAt(i) == '0') {
+                    N = N * 2 + 1;
+                }
             } else {
                 N = N * 2 + (int)(a.charAt(i) - '0');
             }
@@ -19,10 +23,8 @@ public class Main {
         
         int answer = 0;
         for (int i = 1; i < a.length(); i++) {
-            if (a.charAt(i) == '0') {
-                int N = getN(a, i);
-                answer = Math.max(answer, N);
-            }
+            int N = getN(a, i);
+            answer = Math.max(answer, N);
         }
         
         System.out.println(answer);
