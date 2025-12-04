@@ -7,7 +7,7 @@ public class Main {
 
         boolean noCarry = true;
         for (int i = 0; i < N1.length; i++) {
-            if (N1[i] + N2[i] + N3[i] > 10) {
+            if (N1[i] + N2[i] + N3[i] >= 10) {
                 noCarry = false;
                 break;
             }
@@ -16,7 +16,6 @@ public class Main {
         if (noCarry) {
             return n1 + n2 + n3;
         }
-        
         return -1;
     }
 
