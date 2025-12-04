@@ -16,7 +16,7 @@ public class Main {
                 if (j - i >= 0) {
                     dist += (j - i) * arr[j];
                 } else {
-                    dist += (n - 1 - j) * arr[j];
+                    dist += (n - i + j) * arr[j];
                 }
             }
             answer = Math.min(answer, dist);
