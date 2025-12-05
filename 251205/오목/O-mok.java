@@ -30,7 +30,6 @@ public class Main {
                 result[0] = cnt;
                 result[1] = i + dx[dirNum] * 2 + 1;
                 result[2] = j + dy[dirNum] * 2 + 1;
-                System.out.println(i + " " + j + " " + dirNum);
                 break;
             }
         }
