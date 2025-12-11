@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Main {
     public static boolean inRange(int x, int y, int n, int m) {
-        return (x == n && m <= y && y < m + 2);
+        return (x == n && m - 2 <= y && y <= m + 2);
     }
 
     public static void main(String[] args) {
@@ -30,7 +30,6 @@ public class Main {
                         for (int c = l; c < l + 3; c++) {
                             cntS += arr[k][c];
                         }
-
                         answer = Math.max(answer, cntF + cntS);
                     }
                 }
